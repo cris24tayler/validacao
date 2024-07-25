@@ -8,11 +8,11 @@ document.getElementById('cpfForm').addEventListener('submit', function(event){
     const msg = document.getElementById('message');
  
     if(validarCPF(cpf)){
-        msg.textContent = 'O CPF é válido!';
+        msg.textContent = 'O CPF é válido!';// esse codigo mostra uma mensagem em ciman do campo de digitação
         msg.style.color = 'green';
     }else{
         msg.textContent = 'O CPF é inválido!';
-        msg.style.color = 'red';
+        msg.style.color = 'red';// estiliza a cor da mensagem
     }
 }
 );
@@ -29,6 +29,7 @@ function validarCPF(cpf){
     let resto;
  
     // Validando 10º digito do CPF - o primeiro digito verificador
+    //perte de calculo do código para verificação do cpf
     for(let i=1;i <= 9;i++){
         soma += parseInt(cpf.substring(i-1, i)) * (11 - i);
     }
@@ -46,7 +47,8 @@ function validarCPF(cpf){
     for(let i = 1; i <= 10; i++){
         soma += parseInt(cpf.substring(i-1, i)) * (12 - i);
     }
- 
+ // esses verificam se tudo corresponde para retornar verdadeiro ou falso
+ //isse código serve para notificar se o cpf digitado é verdadeiro ou não
     resto = (soma * 10) % 11;
  
     if((resto === 10) || (resto === 11)){
